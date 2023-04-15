@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/style.css">
 
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -51,26 +52,27 @@
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="destination.html" class="nav-link">Destination</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Destination</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">About</a></li>
                     @guest
 
 
 
-                       
-                            @if (Route::has('login'))
-                                <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">login</a></li>
-                            @endif
 
-                            @if (Route::has('register'))
-                                <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>
-                            @endif
-                        
+                        @if (Route::has('login'))
+                            <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">login</a></li>
+                        @endif
+
+                        @if (Route::has('register'))
+                            <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>
+                        @endif
                     @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
+                            <a id="navbarDropdown" class="nav-link mdi mdi-account me-1 ms-1" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="false" aria-expanded="false" v-pre>
+
+                                <img src="storage/{{ Auth::user()->profile_photo_path }}" alt="{{ Auth::user()->name }}"
+                                    class="rounded-circle" width="31" />
                             </a>
 
 
@@ -223,6 +225,7 @@
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/scrollax.min.js"></script>
     <script src="js/main.js"></script>
+
     </div>
 
     @stack('modals')

@@ -2,83 +2,79 @@
 
 
 @section('title')
- Members
+    Members
 @endsection
 
 @section('content')
+    <br>
+    <br>
+    @if (session('status'))
+        <script>
+            swal("", "{{ session('status') }}", "success");
+        </script>
+    @endif
+    @if (session('status1'))
+        <script>
+            swal("", "{{ session('status1') }}", "success");
+        </script>
+    @endif
 
 
 
+    <div class="card container">
 
-<br>
-<br>
-@if(session('status'))
-<script>
-    swal("", "{{ session('status') }}", "success");
-</script>
-@endif
-@if(session('status1'))
-<script>
-    swal("", "{{ session('status1') }}", "success");
-</script>
-@endif
+        <div class="card-header">
+            <h4>Members</h4>
+        </div>
 
-
-
-<div class="card container">
-
-    <div class="card-header">
-        <h4>Members</h4>
-    </div>
-
-    <div class="card-body">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>UserName</th>
-                    <th>Email</th>
-                    <th>Role</th>
-
-                    <th>action</th>
-
-
-                </tr>
-            </thead>
-            <tbody>
-
-                @foreach ($users as $item)
+        <div class="card-body">
+            <table class="table">
+                <thead>
                     <tr>
+                        <th>Id</th>
+                        <th>UserName</th>
+                        <th>Email</th>
+                        <th>Role</th>
 
-                        <td>{{ $item->id }}</td>
-                        <td>{{ $item->name }}</td>
-                        <td>{{ $item->email }}</td>
-                        <td>
-                            @if($item->isAdmin == 0 && $item->isSuperAdmin == 0 )
-                            Client
-                            @endif
-                            @if($item->isSuperAdmin == 1 )
-                            Super Admin
-                            @endif
-                            @if($item->isSuperAdmin== 0 && $item->isAdmin==1)
-                            Admin
-                            @endif
-                            
-                        </td>
-
-@if($item->email!=Auth::user()->email)
+                        <th>action</th>
 
 
-                        <td><a href="{{ url('dashboard/members/edit-member/'.$item->id )}}" class="btn btn-primary">Edit</a></td>
-                        <td><a href="{{ url('dashboard/members/delete-member/'.$item->id )}}" class="btn btn-danger">Delete</a></td>
-                        @endif
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+
+                    @foreach ($users as $item)
+                        <tr>
+
+                            <td>{{ $item->id }}</td>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->email }}</td>
+                            <td>
+                                @if ($item->isAdmin == 0 && $item->isSuperAdmin == 0)
+                                    Client
+                                @endif
+                                @if ($item->isSuperAdmin == 1)
+                                    Super Admin
+                                @endif
+                                @if ($item->isSuperAdmin == 0 && $item->isAdmin == 1)
+                                    Admin
+                                @endif
+
+                            </td>
+                            @if (Auth::user()->isSuperAdmin == 1)
+                                @if ($item->email != Auth::user()->email)
+                                    <td><a href="{{ url('dashboard/members/edit-member/' . $item->id) }}"
+                                            class="btn btn-primary">Edit</a></td>
+                                    <td><a href="{{ url('dashboard/members/delete-member/' . $item->id) }}"
+                                            class="btn btn-danger">Delete</a></td>
+                                @endif
+                            @endif
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+
+        {{ $users->links() }}
     </div>
-
-    {{ $users->links() }}
-</div>
-
 @endsection

@@ -10,7 +10,7 @@ class UsersController extends Controller
 {
     public function index()
     {
-        $users=User::paginate('8');
+        $users = User::paginate('8');
         return view('admin.Users.index', [
             'users' => $users,
         ]);
@@ -19,31 +19,31 @@ class UsersController extends Controller
 
     public function edit($id)
     {
-        $users=User::find($id);
+        $users = User::find($id);
         return view('admin.Users.edit', [
             'users' => $users,
         ]);
     }
 
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
-        $users=User::find($id);
+        $users = User::find($id);
 
 
-        $users->isAdmin=$request->input('isAdmin') == TRUE?'1':'0';
+        $users->isAdmin = $request->input('isAdmin') == TRUE ? '1' : '0';
 
 
         $users->update();
-        return redirect()->route('members')->with('status','Member Updated Successfully');
+        return redirect()->route('members')->with('status', 'Member Updated Successfully');
 
     }
 
     public function destroy($id)
     {
-        $users=User::find($id);
+        $users = User::find($id);
 
 
         $users->delete();
-        return redirect()->route('members')->with('status','Member Deleted Successfully');
+        return redirect()->route('members')->with('status', 'Member Deleted Successfully');
     }
 }

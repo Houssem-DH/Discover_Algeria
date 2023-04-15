@@ -39,12 +39,13 @@
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="destination.html" class="nav-link">Destination</a></li>
+                    <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Destination</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+
                     @guest
 
-                    <ul class="navbar-nav ms-auto">
+
 
 
                         @if (Route::has('login'))
@@ -56,9 +57,11 @@
                         @endif
                     @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
+                            <a id="navbarDropdown" class="nav-link mdi mdi-account me-1 ms-1" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="false" aria-expanded="false" v-pre>
+
+                                <img src="storage/{{ Auth::user()->profile_photo_path }}" alt="{{ Auth::user()->name }}"
+                                    class="rounded-circle" width="31" />
                             </a>
 
 
@@ -96,8 +99,9 @@
 
 
                     @endguest
+
                 </ul>
-                    <!-- Settings Dropdown -->
+                <!-- Settings Dropdown -->
 
             </div>
             </ul>

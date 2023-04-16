@@ -200,8 +200,8 @@
 
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="/dashboard/pending-posts" aria-expanded="false"><i
-                                    class="mdi mdi-receipt"></i><span class="hide-menu">Pending Posts</span></a>
+                                href="/dashboard/site-management" aria-expanded="false"><i
+                                    class="mdi mdi-receipt"></i><span class="hide-menu">Site Management</span></a>
                         </li>
 
 

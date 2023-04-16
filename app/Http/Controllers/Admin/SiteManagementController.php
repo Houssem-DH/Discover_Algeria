@@ -12,7 +12,7 @@ class SiteManagementController extends Controller
     public function index()
     {
 
-//
+
         $images = Site_management::first();
         return view('admin.SiteManagement.index', [
             'images' => $images,

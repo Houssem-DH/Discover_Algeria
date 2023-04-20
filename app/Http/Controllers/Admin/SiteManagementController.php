@@ -81,11 +81,26 @@ class SiteManagementController extends Controller
     public function update_hero_video(Request $request)
     {
 
-        $hero_video = Site_management::first();
 
-        $hero_video->hero_video = $request->input('hero_video');
+        $hero_video = Site_management::first();
+        if ($request->hasFile('video')) {
+            $path = 'storage/sitemanagement/hero_video/' . $hero_video->hero_video;
+            if (File::exists($path)) {
+                File::delete($path);
+
+            }
+
+
+            $file = $request->file('video');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extention;
+            $file->move('storage/sitemanagement/hero_video/', $filename);
+            $hero_video->hero_video = $filename;
+        }
 
         $hero_video->update();
+
+        
 
 
 

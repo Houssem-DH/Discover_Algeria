@@ -121,7 +121,7 @@
                     <p class="caps">Travel to the any corner of Algeria, without going around in circles</p>
                 </div>
                
-                <a href="{{ $images->hero_video }}"  class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
+                <a href="storage/sitemanagement/hero_video/{{ $images->hero_video }}"  class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4" preload="none">
                     <span class="fa fa-play">
                     </span>
                     

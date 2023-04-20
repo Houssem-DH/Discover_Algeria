@@ -86,9 +86,13 @@
                             <td>
 
 
-                                <iframe src="{{ $images->hero_video }}" width="320" height="240" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                                
 
-                            
+                                <video width="320" height="240" controls>
+                                    <source src="storage/sitemanagement/hero_video/{{ $images->hero_video }}" type="video/mp4">
+                           
+                                  
+                                  </video>
                             </td>
                             <td>
 
@@ -99,9 +103,9 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                    <input type="text"
-                                        class="form-control @error('hero_video') is-invalid @enderror"
-                                        name="hero_video" value="{{ $images->hero_video }}">
+                                    <input type="file" class="form-control @error('hero_video') is-invalid @enderror"
+                                    name="video" value="{{ old('hero_video') }}"></td>
+                                    
                                 </div>
                             </td>
                             <td> <button type="submit" class="btn btn-primary">Update</button></td>

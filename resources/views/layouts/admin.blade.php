@@ -210,6 +210,12 @@
                                     class="mdi mdi-receipt"></i><span class="hide-menu">Wilayas</span></a>
                         </li>
 
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="/dashboard/categories" aria-expanded="false"><i
+                                    class="mdi mdi-receipt"></i><span class="hide-menu">Categories</span></a>
+                        </li>
+
 
 
 

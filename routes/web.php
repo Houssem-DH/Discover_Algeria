@@ -36,6 +36,10 @@ Route::middleware('adminAuth')->group(function () {
     Route::get('/dashboard/wilayas/delete-wilaya/{id}', [App\Http\Controllers\Admin\WilayaController::class, 'destroy'])->name('delete-wilayas');
    
    
+    Route::get('/dashboard/categories', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('categories');
+    Route::post('/dashboard/categories/create-category', [App\Http\Controllers\Admin\CategoryController::class, 'insert'])->name('create-categories');
+    Route::put('/dashboard/categories/update-category/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'update'])->name('update-categories');
+    Route::get('/dashboard/categories/delete-category/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'destroy'])->name('delete-categories');
    
 
 });

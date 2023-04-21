@@ -204,6 +204,12 @@
                                     class="mdi mdi-receipt"></i><span class="hide-menu">Site Management</span></a>
                         </li>
 
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="/dashboard/wilayas" aria-expanded="false"><i
+                                    class="mdi mdi-receipt"></i><span class="hide-menu">Wilayas</span></a>
+                        </li>
+
 
 
 

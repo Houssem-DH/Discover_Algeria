@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
+
 
 
 Route::middleware('adminAuth')->group(function () {
@@ -41,6 +43,10 @@ Route::middleware('adminAuth')->group(function () {
     Route::put('/dashboard/categories/update-category/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'update'])->name('update-categories');
     Route::get('/dashboard/categories/delete-category/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'destroy'])->name('delete-categories');
    
+    Route::get('/dashboard/places', [App\Http\Controllers\Admin\PlaceController::class, 'index'])->name('places');
+    Route::post('/dashboard/places/create-place', [App\Http\Controllers\Admin\PlaceController::class, 'insert'])->name('create-places');
+    Route::put('/dashboard/places/update-place/{id}', [App\Http\Controllers\Admin\PlaceController::class, 'update'])->name('update-places');
+    Route::get('/dashboard/places/delete-place/{id}', [App\Http\Controllers\Admin\PlaceController::class, 'destroy'])->name('delete-places');
 
 });
 Route::middleware([

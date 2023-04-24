@@ -15,4 +15,9 @@ class Wilaya extends Model
         
 
     ];
+
+    public function places()
+    {
+        return $this->hasMany(Place::class,'id','wil_id');
+    }
 }

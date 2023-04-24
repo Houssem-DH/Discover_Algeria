@@ -14,13 +14,12 @@ return new class extends Migration
         Schema::create('places', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('cate_id');
+            $table->bigInteger('wil_id');
             $table->string('name');
             $table->string('slug');
-            $table->mediumText('small_description');
-            $table->longText('description');
+            $table->longText('descreption');
             $table->string('image')->nullable();
-            $table->tinyInteger('new')->nullable();
-            $table->tinyInteger('trending')->nullable();
+            $table->string('pg_price')->nullable();
             $table->mediumText('meta_title')->nullable();
             $table->mediumText('meta_keywords')->nullable();
             $table->mediumText('meta_description')->nullable();

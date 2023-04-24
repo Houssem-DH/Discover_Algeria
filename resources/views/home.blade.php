@@ -120,15 +120,17 @@
                     <h1 class="mb-4">Discover Algeria with Us</h1>
                     <p class="caps">Travel to the any corner of Algeria, without going around in circles</p>
                 </div>
-               
-                <a href="storage/sitemanagement/hero_video/{{ $images->hero_video }}"  class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4" preload="none">
+
+                <a href="storage/sitemanagement/hero_video/{{ $images->hero_video }}"
+                    class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4"
+                    preload="none">
                     <span class="fa fa-play">
                     </span>
-                    
+
                 </a>
-                   
-                   
-               
+
+
+
             </div>
         </div>
     </div>
@@ -146,8 +148,7 @@
                                         href="#v-pills-1" role="tab" aria-controls="v-pills-1"
                                         aria-selected="true">Search Tour</a>
 
-                                    <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2"
-                                        role="tab" aria-controls="v-pills-2" aria-selected="false">Hotel</a>
+
 
                                 </div>
                             </div>
@@ -157,7 +158,7 @@
 
                                     <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel"
                                         aria-labelledby="v-pills-nextgen-tab">
-                                        <form action="#" class="search-property-1">
+                                        <form action="{{ route('search') }}" class="search-property-1">
                                             <div class="row no-gutters">
                                                 <div class="col-md d-flex">
                                                     <div class="form-group p-4 border-0">
@@ -172,49 +173,38 @@
                                                 </div>
                                                 <div class="col-md d-flex">
                                                     <div class="form-group p-4">
-                                                        <label for="#">Check-in date</label>
-                                                        <div class="form-field">
-                                                            <div class="icon"><span class="fa fa-calendar"></span>
-                                                            </div>
-                                                            <input type="text" class="form-control checkin_date"
-                                                                placeholder="Check In Date">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md d-flex">
-                                                    <div class="form-group p-4">
-                                                        <label for="#">Check-out date</label>
-                                                        <div class="form-field">
-                                                            <div class="icon"><span class="fa fa-calendar"></span>
-                                                            </div>
-                                                            <input type="text" class="form-control checkout_date"
-                                                                placeholder="Check Out Date">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md d-flex">
-                                                    <div class="form-group p-4">
-                                                        <label for="#">Price Limit</label>
+                                                        <label for="#">Category</label>
                                                         <div class="form-field">
                                                             <div class="select-wrap">
                                                                 <div class="icon"><span
                                                                         class="fa fa-chevron-down"></span></div>
                                                                 <select name="" id=""
                                                                     class="form-control">
-                                                                    <option value="">$100</option>
-                                                                    <option value="">$10,000</option>
-                                                                    <option value="">$50,000</option>
-                                                                    <option value="">$100,000</option>
-                                                                    <option value="">$200,000</option>
-                                                                    <option value="">$300,000</option>
-                                                                    <option value="">$400,000</option>
-                                                                    <option value="">$500,000</option>
-                                                                    <option value="">$600,000</option>
-                                                                    <option value="">$700,000</option>
-                                                                    <option value="">$800,000</option>
-                                                                    <option value="">$900,000</option>
-                                                                    <option value="">$1,000,000</option>
-                                                                    <option value="">$2,000,000</option>
+                                                                    @foreach ($category as $item)
+                                                                        <option value="">{{ $item->name }}
+                                                                        </option>
+                                                                    @endforeach
+
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md d-flex">
+                                                    <div class="form-group p-4">
+                                                        <label for="#">Wilaya</label>
+                                                        <div class="form-field">
+                                                            <div class="select-wrap">
+                                                                <div class="icon"><span
+                                                                        class="fa fa-chevron-down"></span></div>
+                                                                <select name="" id=""
+                                                                    class="form-control">
+                                                                    @foreach ($wilaya as $item)
+                                                                        <option value="">{{ $item->name }}
+                                                                        </option>
+                                                                    @endforeach
+
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -232,82 +222,7 @@
                                         </form>
                                     </div>
 
-                                    <div class="tab-pane fade" id="v-pills-2" role="tabpanel"
-                                        aria-labelledby="v-pills-performance-tab">
-                                        <form action="#" class="search-property-1">
-                                            <div class="row no-gutters">
-                                                <div class="col-lg d-flex">
-                                                    <div class="form-group p-4 border-0">
-                                                        <label for="#">Destination</label>
-                                                        <div class="form-field">
-                                                            <div class="icon"><span class="fa fa-search"></span>
-                                                            </div>
-                                                            <input type="text" class="form-control"
-                                                                placeholder="Search place">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg d-flex">
-                                                    <div class="form-group p-4">
-                                                        <label for="#">Check-in date</label>
-                                                        <div class="form-field">
-                                                            <div class="icon"><span class="fa fa-calendar"></span>
-                                                            </div>
-                                                            <input type="text" class="form-control checkin_date"
-                                                                placeholder="Check In Date">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg d-flex">
-                                                    <div class="form-group p-4">
-                                                        <label for="#">Check-out date</label>
-                                                        <div class="form-field">
-                                                            <div class="icon"><span class="fa fa-calendar"></span>
-                                                            </div>
-                                                            <input type="text" class="form-control checkout_date"
-                                                                placeholder="Check Out Date">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg d-flex">
-                                                    <div class="form-group p-4">
-                                                        <label for="#">Price Limit</label>
-                                                        <div class="form-field">
-                                                            <div class="select-wrap">
-                                                                <div class="icon"><span
-                                                                        class="fa fa-chevron-down"></span></div>
-                                                                <select name="" id=""
-                                                                    class="form-control">
-                                                                    <option value="">$100</option>
-                                                                    <option value="">$10,000</option>
-                                                                    <option value="">$50,000</option>
-                                                                    <option value="">$100,000</option>
-                                                                    <option value="">$200,000</option>
-                                                                    <option value="">$300,000</option>
-                                                                    <option value="">$400,000</option>
-                                                                    <option value="">$500,000</option>
-                                                                    <option value="">$600,000</option>
-                                                                    <option value="">$700,000</option>
-                                                                    <option value="">$800,000</option>
-                                                                    <option value="">$900,000</option>
-                                                                    <option value="">$1,000,000</option>
-                                                                    <option value="">$2,000,000</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg d-flex">
-                                                    <div class="form-group d-flex w-100 border-0">
-                                                        <div class="form-field w-100 align-items-center d-flex">
-                                                            <input type="submit" value="Search"
-                                                                class="align-self-stretch form-control btn btn-primary p-0">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -403,16 +318,17 @@
                 <div class="col-md-12">
                     <div class="carousel-destination owl-carousel ftco-animate">
                         @foreach ($category as $item)
-                        <div class="item">
-                            <div class="project-destination">
-                                <a href="#" class="img" style="background-image: url(storage/categories/{{$item->image}});">
-                                    <div class="text">
-                                        <h3>{{$item->name}}</h3>
-                                        <span></span>
-                                    </div>
-                                </a>
+                            <div class="item">
+                                <div class="project-destination">
+                                    <a href="#" class="img"
+                                        style="background-image: url(storage/categories/{{ $item->image }});">
+                                        <div class="text">
+                                            <h3>{{ $item->name }}</h3>
+                                            <span></span>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
                         @endforeach
                     </div>
                 </div>
@@ -430,25 +346,25 @@
             </div>
             <div class="row">
                 @foreach ($category as $item)
-                    
-                
-                <div class="col-md-4 ftco-animate">
-                    <div class="project-wrap">
-                        <a href="#" class="img" style="background-image: url(storage/categories/{{$item->image}});">
-                            
-                        </a>
-                        <div class="text p-4">
-                            <span class="days">8 Days Tour</span>
-                            <h3><a href="#"></a></h3>
-                            <p class="location"><span class="fa fa-map-marker"></span> Banaue, Ifugao, Philippines</p>
-                            <ul>
-                                <li><span class="flaticon-shower"></span>2</li>
-                                <li><span class="flaticon-king-size"></span>3</li>
-                                <li><span class="flaticon-mountains"></span>Near Mountain</li>
-                            </ul>
+                    <div class="col-md-4 ftco-animate">
+                        <div class="project-wrap">
+                            <a href="#" class="img"
+                                style="background-image: url(storage/categories/{{ $item->image }});">
+
+                            </a>
+                            <div class="text p-4">
+                                <span class="days">8 Days Tour</span>
+                                <h3><a href="#"></a></h3>
+                                <p class="location"><span class="fa fa-map-marker"></span> Banaue, Ifugao, Philippines
+                                </p>
+                                <ul>
+                                    <li><span class="flaticon-shower"></span>2</li>
+                                    <li><span class="flaticon-king-size"></span>3</li>
+                                    <li><span class="flaticon-mountains"></span>Near Mountain</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>

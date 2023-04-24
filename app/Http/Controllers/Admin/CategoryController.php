@@ -13,6 +13,7 @@ class CategoryController extends Controller
     {
         
         $category=Category::orderBy('created_at', 'desc')->paginate('8');
+       
         return view('admin.Categories.index', [
             'category' => $category,
         ]);
@@ -93,7 +94,12 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Category::find($id);
+        $path='storage/categories/'.$category->image;
+        if(File::exists($path))
+        {
+            File::delete($path);
 
+        }
 
         $category->delete();
         return redirect()->route('categories')->with('status','Category Deleted Successfully');

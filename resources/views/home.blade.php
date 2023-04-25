@@ -26,6 +26,14 @@
 
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/style.css">
+
+
+    <style>
+
+        html {
+  scroll-behavior: smooth;
+}
+    </style>
 </head>
 
 <body>
@@ -115,10 +123,10 @@
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
-                <div class="col-md-7 ftco-animate">
+                <div class="col-md-7 ftco-animate" > 
                     <span class="subheading">Welcome to Discover Algeria</span>
                     <h1 class="mb-4">Discover Algeria with Us</h1>
-                    <p class="caps">Travel to the any corner of Algeria, without going around in circles</p>
+                    <p class="caps" id="srch">Travel to the any corner of Algeria, without going around in circles</p>
                 </div>
 
                 <a href="storage/sitemanagement/hero_video/{{ $images->hero_video }}"
@@ -152,7 +160,7 @@
 
                                 </div>
                             </div>
-                            <div class="col-md-12 tab-wrap">
+                            <div class="col-md-12 tab-wrap" >
 
                                 <div class="tab-content" id="v-pills-tabContent">
 
@@ -166,7 +174,7 @@
                                                         <div class="form-field">
                                                             <div class="icon"><span class="fa fa-search"></span>
                                                             </div>
-                                                            <input type="text" class="form-control"
+                                                            <input name="query" type="search" class="form-control"
                                                                 placeholder="Search place">
                                                         </div>
                                                     </div>
@@ -178,10 +186,10 @@
                                                             <div class="select-wrap">
                                                                 <div class="icon"><span
                                                                         class="fa fa-chevron-down"></span></div>
-                                                                <select name="" id=""
+                                                                <select name='cate_id' type="search" id=""
                                                                     class="form-control">
                                                                     @foreach ($category as $item)
-                                                                        <option value="">{{ $item->name }}
+                                                                        <option value="{{ $item->id }}">{{ $item->name }}
                                                                         </option>
                                                                     @endforeach
 
@@ -198,10 +206,10 @@
                                                             <div class="select-wrap">
                                                                 <div class="icon"><span
                                                                         class="fa fa-chevron-down"></span></div>
-                                                                <select name="" id=""
+                                                                <select name='wil_id' id="" type="search"
                                                                     class="form-control">
                                                                     @foreach ($wilaya as $item)
-                                                                        <option value="">{{ $item->name }}
+                                                                        <option value="{{ $item->id }}">{{ $item->name }}
                                                                         </option>
                                                                     @endforeach
 
@@ -245,7 +253,7 @@
                             Semantics, a large language ocean.
                             A small river named Duden flows by their place and supplies it with the necessary
                             regelialia.</p>
-                        <p><a href="#" class="btn btn-primary py-3 px-4">Search Destination</a></p>
+                        <p><button  id="elbt" class="btn btn-primary py-3 px-4">Search Destination</button></p>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -719,6 +727,16 @@
         </svg></div>
 
 
+        <script>
+
+
+document.getElementById("elbt").addEventListener("click" , function (){
+    const element = document.getElementById("srch");
+    element.scrollIntoView();
+
+})
+
+        </script>
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-migrate-3.0.1.min.js"></script>
     <script src="js/popper.min.js"></script>

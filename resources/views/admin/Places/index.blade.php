@@ -267,7 +267,7 @@
 
                                                             <select class="form-select mt-5" name='wil_id'
                                                                 aria-label="Default select example">
-                                                                <option selected>Select Wilaya</option>
+                                                                <option value="{{ $items->wil_id }}" selected>Select Wilaya</option>
                                                                 @foreach ($wilaya as $itemw)
                                                                     <option value="{{ $itemw->id }}">
                                                                         {{ $itemw->name }}</option>

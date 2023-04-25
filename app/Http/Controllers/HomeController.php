@@ -6,6 +6,7 @@ use App\Models\Site_management;
 use App\Models\Category;
 use App\Models\Wilaya;
 use Illuminate\Http\Request;
+use App\Models\Place;
 
 class HomeController extends Controller
 {
@@ -23,12 +24,21 @@ class HomeController extends Controller
     }
 
 
-    public function search()
+    public function search(Request $request)
     {
         $search_text=$_GET['query'];
-        $articles=Article::where('meta_keywords','LIKE','%'.$search_text.'%')->get();
-        $categories=Category::where('meta_keywords','LIKE','%'.$search_text.'%')->get();
-        return view('frontend.search' ,compact(['articles','categories']));
+        $wil_id=$_GET['wil_id'];
+        $cate_id=$_GET['cate_id'];
+        $place=Place::where('meta_keywords','LIKE','%'.$search_text.'%')->where('cate_id','=',$cate_id)->where('wil_id','=',$wil_id)->get();
+        
+
+
+       
+        return view('Search.index' , [
+            'place' => $place,
+           
+
+        ]);
 
 
     }

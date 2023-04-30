@@ -12,7 +12,7 @@
             @foreach ($place as $item )
                 <div class="col-md-4 ftco-animate">
                     <div class="project-wrap">
-                        <a href="#" class="img"
+                        <a href="{{url('places/' . $item->slug)}}" class="img"
                             style="background-image: url(storage/places/{{ $item->image }});">
 
                         </a>

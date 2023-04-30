@@ -18,6 +18,8 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 
+Route::get('/places/{slug}', [App\Http\Controllers\Frontend\PlaceController::class, 'view'])->name('view-place');
+
 
 
 Route::middleware('adminAuth')->group(function () {

@@ -32,4 +32,9 @@ class Place extends Model
     {
         return $this->belongsTo(Wilaya::class,'wil_id','id');
     }
+
+    public function review()
+    {
+        return $this->hasMany(Review::class,'id','place_id');
+    }
 }

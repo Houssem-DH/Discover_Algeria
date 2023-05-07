@@ -1,1 +1,1 @@
-<img src="storage/sitemanagement/logo/logo.png" alt="Logo" width="300px" height="300x">
+<img src="/logo/logo.png" alt="Logo" width="300px" height="300x">

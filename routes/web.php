@@ -19,6 +19,10 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 
 Route::get('/places/{slug}', [App\Http\Controllers\Frontend\PlaceController::class, 'view'])->name('view-place');
+Route::get('/destination', [App\Http\Controllers\Frontend\CategoryController::class, 'index'])->name('destination');
+Route::get('/destination/{id}', [App\Http\Controllers\Frontend\CategoryController::class, 'view'])->name('destination-view');
+Route::post('/review-insert/{user_id}/{place_id}', [App\Http\Controllers\Frontend\ReviewController::class, 'insert'])->name('review-insert');
+
 
 
 

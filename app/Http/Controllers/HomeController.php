@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Wilaya;
 use Illuminate\Http\Request;
 use App\Models\Place;
+use App\Models\Review;
 
 class HomeController extends Controller
 {
@@ -15,10 +16,13 @@ class HomeController extends Controller
         $images = Site_management::first();
         $category = Category::get();
         $wilaya = Wilaya::get();
+        $review=Review::orderBy('created_at', 'DESC')->paginate('5');
+
         return view('home', [
             'images' => $images,
             'category' => $category,
             'wilaya' => $wilaya,
+            'review' => $review,
 
         ]);
     }

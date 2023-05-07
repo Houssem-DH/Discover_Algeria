@@ -16,7 +16,6 @@ use Laravel\Fortify\Contracts\LogoutResponse;
 use Laravel\Fortify\Features;
 use Laravel\Fortify\Fortify;
 use Laravel\Fortify\Http\Requests\LoginRequest;
-use Illuminate\Support\Facades\Auth;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -58,15 +57,7 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request)
     {
         return $this->loginPipeline($request)->then(function ($request) {
-            if (Auth::user()->isAdmin == '1' || Auth::user()->isSuperAdmin) //1 = Admin Login
-            {
-                return redirect('dashboard')->with('status', '');
-            } elseif (Auth::user()->isAdmin == '0' && Auth::user()->isSuperAdmin == '0') // Normal or Default User Login
-            {
-                return redirect('/')->with('status', '');
-            } else {
-                return redirect('/');
-            }
+            return app(LoginResponse::class);
         });
     }
 
@@ -79,19 +70,15 @@ class AuthenticatedSessionController extends Controller
     protected function loginPipeline(LoginRequest $request)
     {
         if (Fortify::$authenticateThroughCallback) {
-            return (new Pipeline(app()))->send($request)->through(
-                array_filter(
-                    call_user_func(Fortify::$authenticateThroughCallback, $request)
-                )
-            );
+            return (new Pipeline(app()))->send($request)->through(array_filter(
+                call_user_func(Fortify::$authenticateThroughCallback, $request)
+            ));
         }
 
         if (is_array(config('fortify.pipelines.login'))) {
-            return (new Pipeline(app()))->send($request)->through(
-                array_filter(
-                    config('fortify.pipelines.login')
-                )
-            );
+            return (new Pipeline(app()))->send($request)->through(array_filter(
+                config('fortify.pipelines.login')
+            ));
         }
 
         return (new Pipeline(app()))->send($request)->through(array_filter([

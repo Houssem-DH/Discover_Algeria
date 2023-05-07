@@ -28,13 +28,18 @@
 
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/place/style.css">
 
 
     <!-- Scripts -->
+   
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Styles -->
     @livewireStyles
+
+    
 </head>
 
 <body>
@@ -51,9 +56,9 @@
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Destination</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="{{url('/destination')}}" class="nav-link">Destination</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Tours</a></li>
                     @guest
 
 
@@ -194,9 +199,7 @@
                         Copyright &copy;
                         <script>
                             document.write(new Date().getFullYear());
-                        </script> All rights reserved | This template is made with <i
-                            class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                            target="_blank">Colorlib</a>
+                        </script> All rights reserved
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>
@@ -231,6 +234,8 @@
     @stack('modals')
 
     @livewireScripts
+  
+
 </body>
 
 </html>

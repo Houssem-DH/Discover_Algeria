@@ -14,6 +14,7 @@ class TourController extends Controller
     {
         
         $tour=Tour::orderBy('created_at', 'desc')->paginate('8');
+        $wilaya=Wilaya::orderBy('number')->get();
         $place=Place::orderBy('name')->get();
    
 
@@ -21,6 +22,7 @@ class TourController extends Controller
         return view('admin.Tours.index', [
             'tour' => $tour,
             'place' => $place,
+            'wilaya' => $wilaya,
             
         ]);
     }
@@ -41,6 +43,10 @@ class TourController extends Controller
         $tour->exp_date=$request->input('exp_date');
         $tour->n_place=$request->input('n_place');
         $tour->price=$request->input('price');
+        $tour->from=$request->input('from');
+        $tour->starting_point=$request->input('starting_point');
+        $tour->transport=$request->input('transport');
+        $tour->food=$request->input('food');
       
         $tour->save();
 
@@ -63,6 +69,10 @@ class TourController extends Controller
         $tour->exp_date=$request->input('exp_date');
         $tour->n_place=$request->input('n_place');
         $tour->price=$request->input('price');
+        $tour->from=$request->input('from');
+        $tour->starting_point=$request->input('starting_point');
+        $tour->transport=$request->input('transport');
+        $tour->food=$request->input('food');
        
 
 

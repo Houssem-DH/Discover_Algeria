@@ -15,11 +15,15 @@ return new class extends Migration {
             $table->id();
             $table->bigInteger('place_id');
             $table->bigInteger('wil_id');
+            $table->string('from');
             $table->tinyInteger('expired')->default(0);
             $table->date('date');
             $table->date('exp_date');
             $table->string('n_place');
             $table->string('n_client')->default(0);
+            $table->string('starting_point');
+            $table->string('transport');
+            $table->string('food');
             $table->string('price');
 
 

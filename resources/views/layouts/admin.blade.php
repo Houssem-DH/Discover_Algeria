@@ -18,7 +18,7 @@
 
 
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('logo/logo.png') }}" />
     <!-- Custom CSS -->
     <link href="{{ asset('assets/libs/flot/css/float-chart.css') }}" rel="stylesheet" />
     <!-- Custom CSS -->
@@ -59,7 +59,7 @@
                         <b class="logo-icon ps-2">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="assets/images/logo-icon.png" alt="homepage" class="light-logo" width="25" />
+                            <img src="logo/logo.png" alt="homepage" class="light-logo" width="35" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->

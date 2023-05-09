@@ -42,7 +42,7 @@ Route::middleware('adminAuth')->group(function () {
     Route::get('dashboard/members/delete-member/{id}', [App\Http\Controllers\Admin\UsersController::class, 'destroy']);
     Route::get('/dashboard/site-management', [App\Http\Controllers\Admin\SiteManagementController::class, 'index'])->name('site-management');
 
-    Route::post('/logo', [App\Http\Controllers\Admin\SiteManagementController::class, 'update_logo'])->name('update_logo');
+    Route::post('/logo-upd', [App\Http\Controllers\Admin\SiteManagementController::class, 'update_logo'])->name('update_logo');
     Route::post('/hero-banner', [App\Http\Controllers\Admin\SiteManagementController::class, 'update_hero_banner'])->name('update_hero_banner');
     Route::post('/hero-video', [App\Http\Controllers\Admin\SiteManagementController::class, 'update_hero_video'])->name('update_hero_video');
 

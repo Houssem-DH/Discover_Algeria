@@ -12,11 +12,15 @@ class Tour extends Model
     protected $fillable=[
         'place_id',
         'wil_id',
+        'from',
         'expired',
         'date',
         'exp_date',
         'n-place',
         'n-client',
+        'starting_point',
+        'transport',
+        'food',
         'price',
        
 

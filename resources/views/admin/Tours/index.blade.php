@@ -48,6 +48,18 @@
                                     @csrf
 
                                     <div class="row">
+                                        <div class="col-md-6 mb-3">
+
+                                            <select class="form-select mt-5" name='from'
+                                                aria-label="Default select example">
+                                                <option selected>From</option>
+                                                @foreach ($wilaya as $itemw)
+                                                    <option value="{{ $itemw->name }}">{{ $itemw->name }}
+                                                    </option>
+                                                @endforeach
+
+                                            </select>
+                                        </div>
 
 
 
@@ -55,13 +67,17 @@
 
                                             <select class="form-select mt-5" name='place_id'
                                                 aria-label="Default select example">
-                                                <option selected>Select Place</option>
+                                                <option selected>To</option>
                                                 @foreach ($place as $itemc)
-                                                    <option value="{{ $itemc->id }}">{{ $itemc->name }}</option>
+                                                    <option value="{{ $itemc->id }}">{{ $itemc->name }}
+                                                    </option>
                                                 @endforeach
 
                                             </select>
                                         </div>
+
+
+                                       
 
 
 
@@ -93,6 +109,52 @@
                                         </div>
 
 
+                                        <div class="col-md-12 mb-3">
+                                            <label for="">Starting Point</label>
+                                            @error('starting_point')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                            <input type="text" class="form-control @error('starting_point') is-invalid @enderror"
+                                                name="starting_point" value="{{ old('starting_point') }}">
+                                        </div>
+
+
+                                        <div class="col-md-6 mb-3">
+
+                                            <select class="form-select mt-5" name='transport'
+                                                aria-label="Default select example">
+                                                <option selected>Transport</option>
+                                               
+                                                    <option value="Car">Car
+                                                    </option>
+                                                    <option value="Bus">Bus
+                                                    </option>
+                                                    <option value="Train">Train
+                                                    </option>
+                                                    <option value="Plane">Plane
+                                                    </option>
+                                                
+
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6 mb-3">
+
+                                            <select class="form-select mt-5" name='food'
+                                                aria-label="Default select example">
+                                                <option selected>Food</option>
+                                               
+                                                    <option value="Yes">Yes
+                                                    </option>
+                                                    <option value="No">No
+                                                    </option>
+                                                    
+                                                
+
+                                            </select>
+                                        </div>
 
                                         <div class="col-md-6 mb-3">
                                             <label for="">Price</label>
@@ -201,13 +263,25 @@
 
                                                 <div class="row">
 
+                                                    <div class="col-md-6 mb-3">
+
+                                                        <select class="form-select mt-5" name='from'
+                                                            aria-label="Default select example">
+                                                            <option selected>From</option>
+                                                            @foreach ($wilaya as $itemw)
+                                                                <option value="{{ $itemw->name }}">{{ $itemw->name }}
+                                                                </option>
+                                                            @endforeach
+            
+                                                        </select>
+                                                    </div>
 
 
                                                     <div class="col-md-6 mb-3">
 
                                                         <select class="form-select mt-5" name='place_id'
                                                             aria-label="Default select example">
-                                                            <option selected>Select Place</option>
+                                                            <option selected>To</option>
                                                             @foreach ($place as $itemc)
                                                                 <option value="{{ $itemc->id }}">{{ $itemc->name }}
                                                                 </option>
@@ -234,6 +308,53 @@
                                                     </div>
 
 
+                                                    <div class="col-md-12 mb-3">
+                                                        <label for="">Starting Point</label>
+                                                        @error('starting_point')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                        <input type="text" class="form-control @error('starting_point') is-invalid @enderror"
+                                                            name="starting_point" value="{{$items->starting_point}}">
+                                                    </div>
+            
+            
+                                                    <div class="col-md-6 mb-3">
+            
+                                                        <select class="form-select mt-5" name='transport'
+                                                            aria-label="Default select example">
+                                                            <option selected>Transport</option>
+                                                           
+                                                                <option value="Car">Car
+                                                                </option>
+                                                                <option value="Bus">Bus
+                                                                </option>
+                                                                <option value="Train">Train
+                                                                </option>
+                                                                <option value="Plane">Plane
+                                                                </option>
+                                                            
+            
+                                                        </select>
+                                                    </div>
+            
+                                                    <div class="col-md-6 mb-3">
+            
+                                                        <select class="form-select mt-5" name='food'
+                                                            aria-label="Default select example">
+                                                            <option selected>Food</option>
+                                                           
+                                                                <option value="Yes">Yes
+                                                                </option>
+                                                                <option value="No">No
+                                                                </option>
+                                                                
+                                                            
+            
+                                                        </select>
+                                                    </div>
+
 
                                                     <div class="col-md-6 mb-3">
                                                         <label for="">Places</label>
@@ -246,6 +367,7 @@
                                                             class="form-control @error('n_place') is-invalid @enderror"
                                                             name="n_place" value="{{$items->n_place}}">
                                                     </div>
+                                                   
 
 
 

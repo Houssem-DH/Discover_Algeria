@@ -18,6 +18,13 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->longText('descreption');
+            $table->string('google_map');
+            $table->string('nearby_hotels');
+            $table->string('hotel_cost_per_night');
+            $table->string('transport');
+            $table->string('transport_cost')->nullable();
+            $table->string('difficulty_degree');
+            $table->string('food_cost');
             $table->string('image')->nullable();
             $table->string('pg_price')->nullable();
             $table->mediumText('meta_title')->nullable();

@@ -48,7 +48,17 @@
 
 
 
+    <style>
+        .mmi {
+            width: 550px;
+            height: 1000px;
+        }
 
+        .mmii {
+            width: 550px !important;
+            height: 500px !important;
+        }
+    </style>
 
 
     <section class="py-5 product_data">
@@ -58,8 +68,29 @@
                 <div class="row g-0">
                     <div class="col-md-6 border-end">
                         <div class="d-flex flex-column justify-content-center">
-                            <div class="main_image"> <img src="storage/places/{{ $place->image }}"
-                                    id="{{ $place->name }}" width="1000"> </div>
+                            <div>
+                                <div class="mmi"> <img class="mmii" src="storage/places/{{ $place->image }}"
+                                        id="{{ $place->name }}">
+                                    <div style="overflow:hidden;max-width:100%;width:550px;height:500px;">
+                                        <div id="google-maps-display" style="height:100%; width:100%;max-width:100%;">
+                                            <iframe style="height:100%;width:100%;border:0;" frameborder="0"
+                                                src="{{ $place->google_map }}"></iframe>
+                                        </div>
+                                        <style>
+                                            #google-maps-display img.text-marker {
+                                                max-width: none !important;
+                                                background: none !important;
+                                            }
+
+                                            img {
+                                                max-width: none
+                                            }
+                                        </style>
+                                    </div>
+                                </div>
+                            </div>
+
+
 
                         </div>
                     </div>
@@ -70,6 +101,53 @@
                             </div>
                             <div class="mt-2 pr-3 content">
                                 <h3>{{ $place->descreption }}</h3>
+                            </div>
+                            <br>
+                            <div class="mt-2 pr-3 content">
+                                <h3>Nearby Hotels : <b>{{ $place->nearby_hotels }}</b></h3>
+                            </div>
+                            <br>
+                            <div class="mt-2 pr-3 content">
+                                <h3>Hotel Cost Per Night : <b>{{ $place->hotel_cost_per_night }} $</b></h3>
+                            </div>
+                            <br>
+                            @if ($place->transport=="yes")
+                            <div class="mt-2 pr-3 content">
+                                <h3>Transport :<b> {{ $place->transport }}</b></h3>
+                            </div>
+                            <br>
+                            <div class="mt-2 pr-3 content">
+                                <h3>Transport Cost :<b> {{ $place->transport_cost }} $</b></h3>
+                            </div>
+                            <br>
+                            @endif
+
+                            @if ($place->transport=="no")
+                            <div class="mt-2 pr-3 content">
+                                <h3>Transport :<b> {{ $place->transport }}</b></h3>
+                            </div>
+                            <br>
+                            @endif
+                            
+
+                            <div class="mt-2 pr-3 content">
+                                <h3>Difficulty Degree : 
+                                    @if ($place->difficulty_degree<=4)
+                                    <b class="text-success">Low</b>
+                                    @endif
+                                    @if ($place->difficulty_degree>4 && $place->difficulty_degree<=7)
+                                    <b class="text-warning">Medium</b>
+                                    @endif
+                                    @if ($place->difficulty_degree>7)
+                                    <b class="text-danger">High</b>
+                                    @endif
+                                    
+                                
+                            </h3>
+                            </div>
+                            <br>
+                            <div class="mt-2 pr-3 content">
+                                <h3>Food Cost : <b>{{ $place->food_cost }} $</b></h3>
                             </div>
                             <br>
                             <div class="mt-2 pr-3 content">
@@ -104,6 +182,15 @@
 
 
     </section>
+
+
+   
+
+
+
+
+
+
 
 
 

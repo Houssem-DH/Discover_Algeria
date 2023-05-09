@@ -1,9 +1,5 @@
 <x-app-layout>
-    <!-- Add the Font Awesome CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-    <!-- Add the Font Awesome JavaScript (if required) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 
 
     <style>
@@ -109,7 +105,7 @@
                                         {{ date('Y', strtotime($tour->exp_date)) }}</b></h3>
                             </div>
                             <div class="mt-2 pr-3 content">
-                                <h3>Staring Date : <b>{{ date('D', strtotime($tour->date)) }}
+                                <h3>Starting Date : <b>{{ date('D', strtotime($tour->date)) }}
                                         {{ date('M', strtotime($tour->date)) }}
                                         {{ date('Y', strtotime($tour->date)) }}</b></h3>
                             </div>
@@ -126,19 +122,239 @@
 
 
 
-                            @if ( ($tour->n_place - $tour->n_client)  != 0)
+                            @if ($tour->n_place - $tour->n_client != 0)
                                 <div class="mt-5"> <span class="fw-bold">
                                         <h3>Price :<span> {{ $tour->price }} $</span></h3>
 
 
 
-                                        <div class="colors">
-                                            <div class="buttons"> <button class="btn btn-primary">Register</button>
-                                            </div>
-                                        </div>
+                                        @if (Auth::user())
+                                            @if ($tourrequestc >= 1)
+                                                <div class="mt-2 pr-3 content">
+                                                    <h3>
+
+                                                        <b class="text-warning">Wait For Confirmation</b>
+
+
+
+                                                    </h3>
+                                                </div>
+                                            @else
+                                                <div class="colors">
+
+                                                    <!-- Button trigger modal -->
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                        data-target=".bd-example-modal-xl">Request</button>
+
+
+
+
+
+
+                                                    <div class="modal fade bd-example-modal-xl" tabindex="-1"
+                                                        role="dialog" aria-labelledby="myExtraLargeModalLabel"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog modal-xl">
+
+                                                            <div class="modal-content">
+                                                                
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title">Join The Tour</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                      <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-75">
+                                                                        <div class="container cc">
+                                                                            <form method="POST"
+                                                                                enctype="multipart/form-data"
+                                                                                action="{{ url('tourrequest/' . Auth::user()->id . '/' . $tour->id) }}">
+                                                                                @csrf
+
+
+                                                                                <div class="row">
+                                                                                    <div class="col-50">
+                                                                                        <h3>Billing Address</h3>
+                                                                                        <label for="fname"><i
+                                                                                                class="fa fa-user"></i>First
+                                                                                            Name</label>
+                                                                                        <input type="text"
+                                                                                            id="fname"
+                                                                                            name="fname"
+                                                                                            value="">
+                                                                                        <label for="fname"><i
+                                                                                                class="fa fa-user"></i>
+                                                                                            Last
+                                                                                            Name</label>
+                                                                                        <input type="text"
+                                                                                            id="lname"
+                                                                                            name="lname"
+                                                                                            value="">
+                                                                                        <label for="adr"><i
+                                                                                                class="fa fa-address-card-o"></i>
+                                                                                            Address</label>
+                                                                                        <input type="text"
+                                                                                            id="adr"
+                                                                                            name="address"
+                                                                                            value="">
+                                                                                        <label for="city"><i
+                                                                                                class="fa fa-institution"></i>
+                                                                                            City</label>
+                                                                                        <input type="text"
+                                                                                            id="city"
+                                                                                            name="city"
+                                                                                            value="">
+
+                                                                                        <div class="row">
+                                                                                            <div class="col-50">
+                                                                                                <label
+                                                                                                    for="state">State</label>
+                                                                                                <input type="text"
+                                                                                                    id="state"
+                                                                                                    name="states"
+                                                                                                    value="">
+                                                                                            </div>
+                                                                                            <div class="col-50">
+                                                                                                <label
+                                                                                                    for="zip">Zip</label>
+                                                                                                <input type="text"
+                                                                                                    id="zip"
+                                                                                                    name="zip"
+                                                                                                    value="">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="col-50">
+                                                                                        <h3>Payment</h3>
+                                                                                        <label for="fname">Accepted
+                                                                                            Cards</label>
+                                                                                        <div class="icon-container">
+                                                                                            <i class="fa fa-cc-visa"
+                                                                                                style="color:navy;"></i>
+                                                                                            <i class="fa fa-cc-amex"
+                                                                                                style="color:blue;"></i>
+                                                                                            <i class="fa fa-cc-mastercard"
+                                                                                                style="color:red;"></i>
+                                                                                            <i class="fa fa-cc-discover"
+                                                                                                style="color:orange;"></i>
+                                                                                        </div>
+                                                                                        <label for="cname">Name on
+                                                                                            Card</label>
+                                                                                        @error('cname')
+                                                                                            <span class="invalid-feedback"
+                                                                                                role="alert">
+                                                                                                <strong>{{ $message }}</strong>
+                                                                                            </span>
+                                                                                        @enderror
+
+                                                                                        <input type="text"
+                                                                                            id="cname"
+                                                                                            class="@error('cname') is-invalid @enderror"
+                                                                                            name="cname"
+                                                                                            value="">
+
+
+                                                                                        <label for="ccnum">Credit
+                                                                                            card
+                                                                                            number</label>
+                                                                                        @error('cnumber')
+                                                                                            <span class="invalid-feedback"
+                                                                                                role="alert">
+                                                                                                <strong>{{ $message }}</strong>
+                                                                                            </span>
+                                                                                        @enderror
+                                                                                        <input type="text"
+                                                                                            id="ccnum"
+                                                                                            class="@error('cnumber') is-invalid @enderror"
+                                                                                            name="cnumber"
+                                                                                            value="">
+
+
+
+                                                                                        <div class="row">
+                                                                                            <div class="col-50">
+                                                                                                <label
+                                                                                                    for="expyear">Exp
+                                                                                                    Month</label>
+                                                                                                @error('mm')
+                                                                                                    <span
+                                                                                                        class="invalid-feedback"
+                                                                                                        role="alert">
+                                                                                                        <strong>{{ $message }}</strong>
+                                                                                                    </span>
+                                                                                                @enderror
+                                                                                                <input type="text"
+                                                                                                    id="expmonth"
+                                                                                                    class="@error('mm') is-invalid @enderror"
+                                                                                                    name="mm"
+                                                                                                    value="">
+
+
+                                                                                            </div>
+                                                                                            <div class="col-50">
+                                                                                                <label
+                                                                                                    for="cvv">Exp
+                                                                                                    Year</label>
+                                                                                                @error('yy')
+                                                                                                    <span
+                                                                                                        class="invalid-feedback"
+                                                                                                        role="alert">
+                                                                                                        <strong>{{ $message }}</strong>
+                                                                                                    </span>
+                                                                                                @enderror
+                                                                                                <input type="text"
+                                                                                                    id="expyear"
+                                                                                                    class="@error('yy') is-invalid @enderror"
+                                                                                                    name="yy"
+                                                                                                    value="">
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <label
+                                                                                            for="expmonth">CVV</label>
+                                                                                        @error('cvv')
+                                                                                            <span class="invalid-feedback"
+                                                                                                role="alert">
+                                                                                                <strong>{{ $message }}</strong>
+                                                                                            </span>
+                                                                                        @enderror
+                                                                                        <input type="text"
+                                                                                            id="cvv"
+                                                                                            class="@error('cvv') is-invalid @enderror"
+                                                                                            name="cvv"
+                                                                                            value="">
+
+
+
+
+                                                                                    </div>
+
+                                                                                </div>
+
+                                                                                <input type="submit" value="Checkout"
+                                                                                    class="bb">
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+
+
+                                                </div>
+                                            @endif
+                                        @endif
                                 </div>
                             @else
-                            <br>
+                                <br>
                                 <div class="mt-2 pr-3 content">
                                     <h3><b class="text-danger">Expired </b></h3>
                                 </div>

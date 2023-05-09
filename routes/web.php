@@ -31,6 +31,9 @@ Route::get('/tours/{id}', [App\Http\Controllers\Frontend\TourController::class, 
 Route::middleware('auth')->group(function () {
 
     Route::get('/requests/{id}', [App\Http\Controllers\Frontend\RequestController::class, 'index'])->name('requests');
+    Route::post('/pgrequest/{user_id}/{place_id}', [App\Http\Controllers\Frontend\RequestController::class, 'pgrequest'])->name('pgrequest');
+    Route::post('/tourrequest/{user_id}/{place_id}', [App\Http\Controllers\Frontend\RequestController::class, 'tourrequest'])->name('tourrequest');
+
 
 });
 
@@ -67,6 +70,15 @@ Route::middleware('adminAuth')->group(function () {
     Route::put('/dashboard/tours/update-tour/{id}', [App\Http\Controllers\Admin\TourController::class, 'update'])->name('update-tours');
     Route::get('/dashboard/tours/delete-tour/{id}', [App\Http\Controllers\Admin\TourController::class, 'destroy'])->name('delete-tours');
 
+
+    Route::get('/dashboard/pgrequests', [App\Http\Controllers\Admin\RequestController::class, 'pgindex'])->name('pgindex');
+    Route::get('/dashboard/pgrequests/accept/{id}', [App\Http\Controllers\Admin\RequestController::class, 'pgaccept'])->name('pgaccept');
+    Route::get('/dashboard/pgrequests/reject/{id}', [App\Http\Controllers\Admin\RequestController::class, 'pgreject'])->name('pgreject');
+
+
+    Route::get('/dashboard/tourrequests', [App\Http\Controllers\Admin\RequestController::class, 'tourindex'])->name('tourindex');
+    Route::get('/dashboard/tourrequests/accept/{id}', [App\Http\Controllers\Admin\RequestController::class, 'touraccept'])->name('touraccept');
+    Route::get('/dashboard/tourrequests/reject/{id}', [App\Http\Controllers\Admin\RequestController::class, 'tourreject'])->name('tourreject');
 });
 Route::middleware([
     'auth:sanctum',

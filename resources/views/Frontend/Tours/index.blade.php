@@ -1,39 +1,59 @@
 <x-app-layout>
-    
- 
-    
-    <section class="ftco-section img ftco-select-destination">
+
+
+
+    <section class="ftco-section">
         <div class="container">
+
             <div class="row justify-content-center pb-4">
                 <div class="col-md-12 heading-section text-center ftco-animate">
                     <span class="subheading">Our Tours</span>
-                    <h2 class="mb-4">Recent Tours</h2>
+                    <h2 class="mb-4">All Tours</h2>
                 </div>
             </div>
-            
-        </div>
-        <div class="container">
+            <div class="row justify-content-center pb-4">
+            </div>
             <div class="row">
-                <div class="col-md-12">
-                    <div class="carousel-destination owl-carousel ftco-animate">
-                        @foreach ($tour as $item)
-                            <div class="item">
-                                <div class="project-destination">
-                                    <a href="{{ url('tours/' . $item->id) }}" class="img"
-                                        style="background-image: url(storage/places/{{ $item->place->image }});">
-                                        <div class="text">
-                                            <h3>{{ $item->place->name }}</h3>
-                                            <span>{{ date('D', strtotime($item->date)) }} {{ date('M', strtotime($item->date)) }} {{ date('Y', strtotime($item->date)) }}</span>
-                                        </div>
-                                    </a>
-                                </div>
+                @foreach ($tour as $item)
+                    <div class="col-md-4 ftco-animate">
+                        <div class="project-wrap">
+                            <a href="{{ url('tours/' . $item->id) }}" class="img"
+                                style="background-image: url(storage/places/{{ $item->place->image }});">
+
+                            </a>
+                            <div class="text p-4">
+                                <span class="days"></span>
+                                <h3><a href="#"></a></h3>
+                                <p class="location"><span class="fa fa-map-marker"></span> {{ $item->place->name }},
+                                    {{ $item->place->wilaya->name }}
+                                </p>
+                                <p> From : {{ $item->from }}</p>
+
+
+                                <ul>
+
+                                    <li><span class="flaticon-map"></span>{{ date('D', strtotime($item->date)) }}
+                                        {{ date('M', strtotime($item->date)) }}
+                                        {{ date('Y', strtotime($item->date)) }}</li>
+                                </ul>
                             </div>
-                        @endforeach
+                        </div>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
+        <style>
+            .nn {
+                margin: 25px;
+                width: 350px;
+                height: 200px;
+                margin: 25px;
+                display: flex;
+                justify-content: center;
+            }
+        </style>
+        <div class="nn"> {{ $tour->links() }}</div>
     </section>
 
-       <br><br><br><br><br><br>
-    </x-app-layout>
+    <br><br><br><br><br><br>
+</x-app-layout>

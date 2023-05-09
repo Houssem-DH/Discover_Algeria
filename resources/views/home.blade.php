@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
- <!-- Favicon icon -->
- <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('logo/logo.png') }}" />
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('logo/logo.png') }}" />
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
@@ -59,7 +59,7 @@
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="{{url('/')}}" class="nav-link">Home</a></li>
+                    <li class="nav-item active"><a href="{{ url('/') }}" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="{{ url('/destination') }}" class="nav-link">Destination</a></li>
                     <li class="nav-item"><a href="{{ url('/tours') }}" class="nav-link">Tours</a></li>
 
@@ -101,7 +101,8 @@
                                     {{ __('My Profile') }}
                                 </a>
 
-                                <a class="dropdown-item" href="{{ url('requests/'. Auth::user()->id) }}" style="color:rgb(0, 0, 0);">
+                                <a class="dropdown-item" href="{{ url('requests/' . Auth::user()->id) }}"
+                                    style="color:rgb(0, 0, 0);">
 
                                     {{ __('My Requests') }}
                                 </a>
@@ -364,41 +365,61 @@
     </section>
 
 
-    
-    <section class="ftco-section img ftco-select-destination">
+    <section class="ftco-section">
         <div class="container">
+
             <div class="row justify-content-center pb-4">
                 <div class="col-md-12 heading-section text-center ftco-animate">
                     <span class="subheading">Our Tours</span>
                     <h2 class="mb-4">Recent Tours</h2>
                 </div>
             </div>
-            
-        </div>
-        <div class="container">
+            <div class="row justify-content-center pb-4">
+            </div>
             <div class="row">
-                <div class="col-md-12">
-                    <div class="carousel-destination owl-carousel ftco-animate">
-                        @foreach ($tour as $item)
-                            <div class="item">
-                                <div class="project-destination">
-                                    <a href="{{ url('tours/' . $item->id) }}" class="img"
-                                        style="background-image: url(storage/places/{{ $item->place->image }});">
-                                        <div class="text">
-                                            <h3>{{ $item->place->name }}</h3>
-                                            <span>{{ date('D', strtotime($item->date)) }} {{ date('M', strtotime($item->date)) }} {{ date('Y', strtotime($item->date)) }}</span>
-                                        </div>
-                                    </a>
-                                </div>
+                @foreach ($tour as $item)
+                    <div class="col-md-4 ftco-animate">
+                        <div class="project-wrap">
+                            <a href="{{ url('tours/' . $item->id) }}" class="img"
+                                style="background-image: url(storage/places/{{ $item->place->image }});">
+
+                            </a>
+                            <div class="text p-4">
+                                <span class="days"></span>
+                                <h3><a href="#"></a></h3>
+                                <p class="location"><span class="fa fa-map-marker"></span> {{ $item->place->name }},
+                                    {{ $item->place->wilaya->name }}
+                                </p>
+                                <p> From : {{ $item->from }}</p>
+
+
+                                <ul>
+
+                                    <li><span class="flaticon-map"></span>{{ date('D', strtotime($item->date)) }}
+                                        {{ date('M', strtotime($item->date)) }}
+                                        {{ date('Y', strtotime($item->date)) }}</li>
+                                </ul>
                             </div>
-                        @endforeach
+                        </div>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
+        <style>
+            .nn {
+                margin: 25px;
+                width: 350px;
+                height: 200px;
+                margin: 25px;
+                display: flex;
+                justify-content: center;
+            }
+        </style>
+
     </section>
 
-    
+
+
 
 
 
@@ -454,8 +475,7 @@
                 <div class="col-md pt-5">
                     <div class="ftco-footer-widget pt-md-5 mb-4">
                         <h2 class="ftco-heading-2">About</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                            there live the blind texts.</p>
+                        <p>Discover Algeria Is ......</p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
                             <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
                             <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
@@ -463,29 +483,17 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md pt-5 border-left">
-                    <div class="ftco-footer-widget pt-md-5 mb-4 ml-md-5">
-                        <h2 class="ftco-heading-2">Infromation</h2>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="py-2 d-block">Online Enquiry</a></li>
-                            <li><a href="#" class="py-2 d-block">General Enquiries</a></li>
-                            <li><a href="#" class="py-2 d-block">Booking Conditions</a></li>
-                            <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
-                            <li><a href="#" class="py-2 d-block">Refund Policy</a></li>
-                            <li><a href="#" class="py-2 d-block">Call Us</a></li>
-                        </ul>
-                    </div>
-                </div>
+
                 <div class="col-md pt-5 border-left">
                     <div class="ftco-footer-widget pt-md-5 mb-4">
-                        <h2 class="ftco-heading-2">Experience</h2>
+                        <h2 class="ftco-heading-2">Useful Links</h2>
                         <ul class="list-unstyled">
-                            <li><a href="#" class="py-2 d-block">Adventure</a></li>
-                            <li><a href="#" class="py-2 d-block">Hotel and Restaurant</a></li>
-                            <li><a href="#" class="py-2 d-block">Beach</a></li>
-                            <li><a href="#" class="py-2 d-block">Nature</a></li>
-                            <li><a href="#" class="py-2 d-block">Camping</a></li>
-                            <li><a href="#" class="py-2 d-block">Party</a></li>
+                            <li><a href="{{ url('/') }}" class="py-2 d-block">Home</a></li>
+                            <li><a href="{{ url('destination') }}" class="py-2 d-block">Destination</a></li>
+                            <li><a href="{{ url('tours') }}" class="py-2 d-block">Tours</a></li>
+                            <li><a href="{{ url('user/profile') }}" class="py-2 d-block">My Profile</a></li>
+
+
                         </ul>
                     </div>
                 </div>
@@ -494,12 +502,12 @@
                         <h2 class="ftco-heading-2">Have a Questions?</h2>
                         <div class="block-23 mb-3">
                             <ul>
-                                <li><span class="icon fa fa-map-marker"></span><span class="text">203 Fake St.
-                                        Mountain View, San Francisco, California, USA</span></li>
-                                <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2
-                                            392 3929 210</span></a></li>
+                                <li><span class="icon fa fa-map-marker"></span><span class="text">UFAS Setif ,
+                                        ALGERIA</span></li>
+                                <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+213
+                                            0554278963</span></a></li>
                                 <li><a href="#"><span class="icon fa fa-paper-plane"></span><span
-                                            class="text">info@yourdomain.com</span></a></li>
+                                            class="text">info@discoveralgeria.com</span></a></li>
                             </ul>
                         </div>
                     </div>

@@ -226,6 +226,16 @@
                                 href="/dashboard/tours" aria-expanded="false"><i
                                     class="mdi mdi-receipt"></i><span class="hide-menu">Tours</span></a>
                         </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="/dashboard/pgrequests" aria-expanded="false"><i
+                                    class="mdi mdi-receipt"></i><span class="hide-menu">Private Guide Requests</span></a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="/dashboard/tourrequests" aria-expanded="false"><i
+                                    class="mdi mdi-receipt"></i><span class="hide-menu">Tour Requests</span></a>
+                        </li>
 
 
 

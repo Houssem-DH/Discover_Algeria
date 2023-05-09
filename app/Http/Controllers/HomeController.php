@@ -18,7 +18,7 @@ class HomeController extends Controller
         $category = Category::get();
         $wilaya = Wilaya::get();
         $review=Review::orderBy('created_at', 'DESC')->paginate('5');
-        $tour=Tour::orderBy('created_at', 'DESC')->paginate('6');
+        $tour=Tour::orderBy('created_at', 'DESC')->paginate('3');
 
         return view('home', [
             'images' => $images,

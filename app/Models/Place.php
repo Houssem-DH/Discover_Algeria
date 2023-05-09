@@ -44,4 +44,8 @@ class Place extends Model
     {
         return $this->hasMany(Review::class,'id','place_id');
     }
+    public function pgrequest()
+    {
+        return $this->hasMany(Pgrequest::class,'id','place_id');
+    }
 }

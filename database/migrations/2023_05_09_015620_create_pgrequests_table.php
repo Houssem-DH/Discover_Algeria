@@ -13,6 +13,21 @@ return new class extends Migration
     {
         Schema::create('pgrequests', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
+            $table->integer('place_id');
+            $table->string('fname')->nullable();
+            $table->string('lname')->nullable();
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('states')->nullable();
+            $table->string('zip')->nullable();
+            $table->string('cname')->nullable();
+            $table->string('cnumber')->nullable();
+            $table->string('mm')->nullable();
+            $table->string('yy')->nullable();
+            $table->string('cvv')->nullable();
+            $table->string('status')->default('0');
+            $table->string('rejected')->default('0');
             $table->timestamps();
         });
     }

@@ -58,9 +58,9 @@
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+                    <li class="nav-item active"><a href="{{url('/')}}" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="{{ url('/destination') }}" class="nav-link">Destination</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Tours</a></li>
+                    <li class="nav-item"><a href="{{ url('/tours') }}" class="nav-link">Tours</a></li>
 
                     @guest
 
@@ -98,6 +98,11 @@
                                 <a class="dropdown-item" href="{{ url('user/profile') }}" style="color:rgb(0, 0, 0);">
 
                                     {{ __('My Profile') }}
+                                </a>
+
+                                <a class="dropdown-item" href="{{ url('requests/'. Auth::user()->id) }}" style="color:rgb(0, 0, 0);">
+
+                                    {{ __('My Requests') }}
                                 </a>
 
                                 <a class="dropdown-item" href="{{ route('logout') }}"
@@ -358,9 +363,8 @@
     </section>
 
 
-
-
-    <section class="ftco-section">
+    
+    <section class="ftco-section img ftco-select-destination">
         <div class="container">
             <div class="row justify-content-center pb-4">
                 <div class="col-md-12 heading-section text-center ftco-animate">
@@ -368,73 +372,32 @@
                     <h2 class="mb-4">Recent Tours</h2>
                 </div>
             </div>
-            <div class="row d-flex">
-                <div class="col-md-4 d-flex ftco-animate">
-                    <div class="blog-entry justify-content-end">
-                        <a href="blog-single.html" class="block-20"
-                            style="background-image: url('images/image_1.jpg');">
-                        </a>
-                        <div class="text">
-                            <div class="d-flex align-items-center mb-4 topp">
-                                <div class="one">
-                                    <span class="day">11</span>
-                                </div>
-                                <div class="two">
-                                    <span class="yr">2020</span>
-                                    <span class="mos">September</span>
-                                </div>
-                            </div>
-                            <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
-                            <!-- <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p> -->
-                            <p><a href="#" class="btn btn-primary">Read more</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 d-flex ftco-animate">
-                    <div class="blog-entry justify-content-end">
-                        <a href="blog-single.html" class="block-20"
-                            style="background-image: url('images/image_2.jpg');">
-                        </a>
-                        <div class="text">
-                            <div class="d-flex align-items-center mb-4 topp">
-                                <div class="one">
-                                    <span class="day">11</span>
-                                </div>
-                                <div class="two">
-                                    <span class="yr">2020</span>
-                                    <span class="mos">September</span>
+            
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="carousel-destination owl-carousel ftco-animate">
+                        @foreach ($tour as $item)
+                            <div class="item">
+                                <div class="project-destination">
+                                    <a href="{{ url('tours/' . $item->id) }}" class="img"
+                                        style="background-image: url(storage/places/{{ $item->place->image }});">
+                                        <div class="text">
+                                            <h3>{{ $item->place->name }}</h3>
+                                            <span>{{ date('D', strtotime($item->date)) }} {{ date('M', strtotime($item->date)) }} {{ date('Y', strtotime($item->date)) }}</span>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
-                            <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
-                            <!-- <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p> -->
-                            <p><a href="#" class="btn btn-primary">Read more</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 d-flex ftco-animate">
-                    <div class="blog-entry">
-                        <a href="blog-single.html" class="block-20"
-                            style="background-image: url('images/image_3.jpg');">
-                        </a>
-                        <div class="text">
-                            <div class="d-flex align-items-center mb-4 topp">
-                                <div class="one">
-                                    <span class="day">11</span>
-                                </div>
-                                <div class="two">
-                                    <span class="yr">2020</span>
-                                    <span class="mos">September</span>
-                                </div>
-                            </div>
-                            <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
-                            <!-- <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p> -->
-                            <p><a href="#" class="btn btn-primary">Read more</a></p>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    
 
 
 

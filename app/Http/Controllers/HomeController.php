@@ -8,6 +8,7 @@ use App\Models\Wilaya;
 use Illuminate\Http\Request;
 use App\Models\Place;
 use App\Models\Review;
+use App\Models\Tour;
 
 class HomeController extends Controller
 {
@@ -17,12 +18,14 @@ class HomeController extends Controller
         $category = Category::get();
         $wilaya = Wilaya::get();
         $review=Review::orderBy('created_at', 'DESC')->paginate('5');
+        $tour=Tour::orderBy('created_at', 'DESC')->paginate('6');
 
         return view('home', [
             'images' => $images,
             'category' => $category,
             'wilaya' => $wilaya,
             'review' => $review,
+            'tour' => $tour,
 
         ]);
     }

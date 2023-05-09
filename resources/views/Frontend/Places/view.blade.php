@@ -73,7 +73,7 @@
                             </div>
                             <br>
                             <div class="mt-2 pr-3 content">
-                                <span>{{$countr}} Reviews</span>
+                                <span>{{ $countr }} Reviews</span>
                             </div>
 
 
@@ -110,47 +110,54 @@
 
 
 
-
+    <style>
+        .nn {
+            margin: 25px;
+            width: 350px;
+            height: 200px;
+            margin: 25px;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
 
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-@if (Auth::user())
-  
+    @if (Auth::user())
+        <div class="container ">
+            <div class="row">
+                <div class="col-md-12 border-end">
+                    <div class="media g-mb-30 media-comment">
+                        <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15"
+                            src="storage/{{ Auth::user()->profile_photo_path }}" alt="{{ Auth::user()->name }}">
+                        <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
+                            <div class="g-mb-15">
+                                <h5 class="h5 g-color-gray-dark-v1 mb-0">Review</h5>
+                            </div>
+                            <form action="{{ url('review-insert/' . Auth::user()->id . '/' . $place->id) }}"
+                                method="POST" enctype="multipart/form-data">
+                                @csrf
 
-    <div class="container ">
-        <div class="row">
-            <div class="col-md-12 border-end">
-                <div class="media g-mb-30 media-comment">
-                    <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15"
-                        src="storage/{{ Auth::user()->profile_photo_path }}" alt="{{ Auth::user()->name }}">
-                    <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
-                        <div class="g-mb-15">
-                            <h5 class="h5 g-color-gray-dark-v1 mb-0">Review</h5>
+                                <div class="mt-3 d-flex flex-row align-items-center p-3 form-color">
+                                    <textarea type="text" class="form-control" name="comment" placeholder="Enter your review..."></textarea>
+                                </div>
+                                <div class="mr-3" style="float: right;">
+                                    <button class="btn btn-primary" type="submit">Submit</button>
+                                </div>
+                            </form>
                         </div>
-                        <form action="{{ url('review-insert/' . Auth::user()->id . '/' . $place->id) }}" method="POST"
-                            enctype="multipart/form-data">
-                            @csrf
-
-                            <div class="mt-3 d-flex flex-row align-items-center p-3 form-color">
-                                <textarea type="text" class="form-control" name="comment" placeholder="Enter your review..."> </textarea>
-                            </div>
-                            <div class="mr-3" style="float: right;">
-                                <button class="btn btn-primary" type="submit">Submit</button>
-                            </div>
-                        </form>
                     </div>
                 </div>
+
+
+
             </div>
 
 
-
         </div>
-
-
-    </div>
     @endif
-    
+
 
 
 
@@ -180,16 +187,7 @@
 
         </div>
     </div>
-    <style>
-        .nn {
-            margin: 25px;
-            width: 350px;
-            height: 200px;
-            margin: 25px;
-            display: flex;
-            justify-content: center;
-        }
-    </style>
+
     <br><br><br>
     <div class="nn" style=" margin: auto;"> {{ $review->links() }}</div>
 

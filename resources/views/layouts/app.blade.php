@@ -56,9 +56,9 @@
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="{{url('/')}}" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="{{url('/destination')}}" class="nav-link">Destination</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Tours</a></li>
+                    <li class="nav-item"><a href="{{ url('/tours') }}" class="nav-link">Tours</a></li>
                     @guest
 
 
@@ -95,6 +95,10 @@
                                 <a class="dropdown-item" href="{{ url('user/profile') }}" style="color:rgb(0, 0, 0);">
 
                                     {{ __('My Profile') }}
+                                </a>
+                                <a class="dropdown-item" href="{{ url('requests/'. Auth::user()->id) }}" style="color:rgb(0, 0, 0);">
+
+                                    {{ __('My Requests') }}
                                 </a>
 
                                 <a class="dropdown-item" href="{{ route('logout') }}"

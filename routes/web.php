@@ -23,8 +23,16 @@ Route::get('/destination', [App\Http\Controllers\Frontend\CategoryController::cl
 Route::get('/destination/{id}', [App\Http\Controllers\Frontend\CategoryController::class, 'view'])->name('destination-view');
 Route::post('/review-insert/{user_id}/{place_id}', [App\Http\Controllers\Frontend\ReviewController::class, 'insert'])->name('review-insert');
 
+Route::get('/tours', [App\Http\Controllers\Frontend\TourController::class, 'index'])->name('tour');
+
+Route::get('/tours/{id}', [App\Http\Controllers\Frontend\TourController::class, 'view'])->name('view-tour');
 
 
+Route::middleware('auth')->group(function () {
+
+    Route::get('/requests/{id}', [App\Http\Controllers\Frontend\RequestController::class, 'index'])->name('requests');
+
+});
 
 Route::middleware('adminAuth')->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('dashboard');
@@ -53,6 +61,11 @@ Route::middleware('adminAuth')->group(function () {
     Route::post('/dashboard/places/create-place', [App\Http\Controllers\Admin\PlaceController::class, 'insert'])->name('create-places');
     Route::put('/dashboard/places/update-place/{id}', [App\Http\Controllers\Admin\PlaceController::class, 'update'])->name('update-places');
     Route::get('/dashboard/places/delete-place/{id}', [App\Http\Controllers\Admin\PlaceController::class, 'destroy'])->name('delete-places');
+
+    Route::get('/dashboard/tours', [App\Http\Controllers\Admin\TourController::class, 'index'])->name('tours');
+    Route::post('/dashboard/tours/create-tour', [App\Http\Controllers\Admin\TourController::class, 'insert'])->name('create-tours');
+    Route::put('/dashboard/tours/update-tour/{id}', [App\Http\Controllers\Admin\TourController::class, 'update'])->name('update-tours');
+    Route::get('/dashboard/tours/delete-tour/{id}', [App\Http\Controllers\Admin\TourController::class, 'destroy'])->name('delete-tours');
 
 });
 Route::middleware([

@@ -221,6 +221,11 @@
                                 href="/dashboard/places" aria-expanded="false"><i
                                     class="mdi mdi-receipt"></i><span class="hide-menu">Places</span></a>
                         </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="/dashboard/tours" aria-expanded="false"><i
+                                    class="mdi mdi-receipt"></i><span class="hide-menu">Tours</span></a>
+                        </li>
 
 
 

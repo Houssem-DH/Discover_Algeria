@@ -200,31 +200,26 @@
 
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="/dashboard/site-management" aria-expanded="false"><i
-                                    class="mdi mdi-receipt"></i><span class="hide-menu">Site Management</span></a>
+                                href="/dashboard/site-management" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Site Management</span></a>
                         </li>
 
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="/dashboard/wilayas" aria-expanded="false"><i
-                                    class="mdi mdi-receipt"></i><span class="hide-menu">Wilayas</span></a>
+                                href="/dashboard/wilayas" aria-expanded="false"><i class="mdi mdi-relative-scale"></i><span class="hide-menu">Wilayas</span></a>
                         </li>
 
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="/dashboard/categories" aria-expanded="false"><i
-                                    class="mdi mdi-receipt"></i><span class="hide-menu">Categories</span></a>
+                                href="/dashboard/categories" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Categories</span></a>
                         </li>
 
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="/dashboard/places" aria-expanded="false"><i
-                                    class="mdi mdi-receipt"></i><span class="hide-menu">Places</span></a>
+                                href="/dashboard/places" aria-expanded="false"><i class="mdi mdi-web fs-3 mb-1 font-16"></i><span class="hide-menu">Places</span></a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="/dashboard/tours" aria-expanded="false"><i
-                                    class="mdi mdi-receipt"></i><span class="hide-menu">Tours</span></a>
+                                href="/dashboard/tours" aria-expanded="false"><i class="mdi mdi-web fs-3 mb-1 font-16"></i><span class="hide-menu">Tours</span></a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link"

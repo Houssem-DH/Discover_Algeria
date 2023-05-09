@@ -267,13 +267,8 @@
                     <div class="w-100">
                         <span class="subheading">Welcome to Discover Algeria</span>
                         <h2 class="mb-4">It's time to start your adventure</h2>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.
-                            It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                            there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
-                            Semantics, a large language ocean.
-                            A small river named Duden flows by their place and supplies it with the necessary
-                            regelialia.</p>
+                        <p>Welcome to Discover Algeria, where your extraordinary journey begins. Our agency is dedicated to providing exceptional travel experiences that immerse you in the wonders of this captivating country. With Discover Algeria, you'll explore breathtaking landscapes, vibrant cities, and cultural treasures that will leave you in awe.</p>
+                        <p>Step into a world where every detail is carefully curated to ensure your satisfaction. From the moment you arrive, our team of expert travel professionals will be by your side, ready to guide you through the hidden gems and iconic landmarks that make Algeria so unique.</p>
                         <p><button id="elbt" class="btn btn-primary py-3 px-4">Search Destination</button></p>
                     </div>
                 </div>
@@ -286,7 +281,7 @@
                                         class="flaticon-paragliding"></span></div>
                                 <div class="media-body">
                                     <h3 class="heading mb-3">Activities</h3>
-                                    <p>A small river named Duden flows by their place and supplies it with the necessary
+                                    <p>Discover Algeria provides a range of exciting activities for you to enjoy during your trip. Immerse yourself in the wonders of nature as you explore the captivating landscapes 
                                     </p>
                                 </div>
                             </div>
@@ -298,7 +293,7 @@
                                         class="flaticon-route"></span></div>
                                 <div class="media-body">
                                     <h3 class="heading mb-3">Travel Arrangements</h3>
-                                    <p>A small river named Duden flows by their place and supplies it with the necessary
+                                    <p>Discover Algeria, ensures a memorable experience as you explore the exquisite landscapes and cultural wonders of Algeria.
                                     </p>
                                 </div>
                             </div>
@@ -310,7 +305,7 @@
                                         class="flaticon-tour-guide"></span></div>
                                 <div class="media-body">
                                     <h3 class="heading mb-3">Private Guide</h3>
-                                    <p>A small river named Duden flows by their place and supplies it with the necessary
+                                    <p>Discover Algeria offers the services of a dedicated Private Guide who will accompany you during your exploration of Algeria. 
                                     </p>
                                 </div>
                             </div>
@@ -322,7 +317,7 @@
                                         class="flaticon-map"></span></div>
                                 <div class="media-body">
                                     <h3 class="heading mb-3">Location Manager</h3>
-                                    <p>A small river named Duden flows by their place and supplies it with the necessary
+                                    <p>With an in-depth knowledge of the area, our Location Manager will guide you to the most beautiful spots in Algeria
                                     </p>
                                 </div>
                             </div>
@@ -475,7 +470,7 @@
                 <div class="col-md pt-5">
                     <div class="ftco-footer-widget pt-md-5 mb-4">
                         <h2 class="ftco-heading-2">About</h2>
-                        <p>Discover Algeria Is ......</p>
+                        <p>Discover Algeria is a premier travel agency that specializes in curating exceptional journeys throughout Algeria</p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
                             <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
                             <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>

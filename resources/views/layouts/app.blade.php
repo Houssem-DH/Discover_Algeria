@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Discover Algeria</title>
 
     <base href="{{ URL::asset('/') }}" target="_top">
      <!-- Favicon icon -->
@@ -151,7 +151,7 @@
                 <div class="col-md pt-5">
                     <div class="ftco-footer-widget pt-md-5 mb-4">
                         <h2 class="ftco-heading-2">About</h2>
-                        <p>Discover Algeria Is ......</p>
+                        <p>Discover Algeria is a premier travel agency that specializes in curating exceptional journeys throughout Algeria</p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
                             <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
                             <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>

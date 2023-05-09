@@ -50,6 +50,13 @@ class PlaceController extends Controller
         $place->cate_id=$request->input('cate_id');
         $place->wil_id=$request->input('wil_id');
         $place->descreption=$request->input('descreption');
+        $place->google_map=$request->input('google_map');
+        $place->nearby_hotels=$request->input('nearby_hotels');
+        $place->hotel_cost_per_night=$request->input('hotel_cost_per_night');
+        $place->transport=$request->input('transport');
+        $place->transport_cost=$request->input('transport_cost');
+        $place->difficulty_degree=$request->input('difficulty_degree');
+        $place->food_cost=$request->input('food_cost');
         $place->pg_price=$request->input('pg_price');
         $place->meta_title=$request->input('meta_title');
         $place->meta_keywords=$request->input('meta_keywords');
@@ -85,6 +92,13 @@ class PlaceController extends Controller
         $place->cate_id=$request->input('cate_id');
         $place->wil_id=$request->input('wil_id');
         $place->descreption=$request->input('descreption');
+        $place->google_map=$request->input('google_map');
+        $place->nearby_hotels=$request->input('nearby_hotels');
+        $place->hotel_cost_per_night=$request->input('hotel_cost_per_night');
+        $place->transport=$request->input('transport');
+        $place->transport_cost=$request->input('transport_cost');
+        $place->difficulty_degree=$request->input('difficulty_degree');
+        $place->food_cost=$request->input('food_cost');
         $place->pg_price=$request->input('pg_price');
         $place->meta_title=$request->input('meta_title');
         $place->meta_keywords=$request->input('meta_keywords');

@@ -104,6 +104,91 @@
                                         <textarea name="descreption" rows="3" class="form-control @error('descreption') is-invalid @enderror">{{ old('descreption') }}</textarea>
                                     </div>
 
+                                    <div class="col-md-12 mb-3">
+                                        <label for="">Google map</label>
+                                        @error('google_map')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                        <input type="text" class="form-control @error('google_map') is-invalid @enderror"
+                                            name="google_map" value="{{ old('google_map') }}">
+                                    </div>
+
+
+                                    <div class="col-md-12 mb-3">
+                                        <label for="">Nearby Hotels</label>
+                                        @error('nearby_hotels')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                        <input type="text" class="form-control @error('nearby_hotels') is-invalid @enderror"
+                                            name="nearby_hotels" value="{{ old('nearby_hotels') }}">
+                                    </div>
+
+                                    <div class="col-md-12 mb-3">
+                                        <label for="">Hotel Cost Per Night</label>
+                                        @error('hotel_cost_per_night')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                        <input type="number" class="form-control @error('hotel_cost_per_night') is-invalid @enderror"
+                                            name="hotel_cost_per_night" value="{{ old('hotel_cost_per_night') }}">
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+
+                                        <select class="form-select mt-5" name='transport' aria-label="Default select example">
+                                            <option selected>Tranport</option>
+                                            
+                                                <option value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                            
+
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="">Transport Cost</label>
+                                        @error('transport_cost')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                        <input type="number" class="form-control @error('transport_cost') is-invalid @enderror"
+                                            name="transport_cost" value="{{ old('transport_cost') }}">
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label for="">Diffuclty Degree</label>
+                                        @error('difficulty_degree')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                        <input type="number" class="form-control @error('difficulty_degree') is-invalid @enderror"
+                                            name="difficulty_degree" value="{{ old('difficulty_degree') }}">
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label for="">Food Cost</label>
+                                        @error('food_cost')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                        <input type="number" class="form-control @error('food_cost') is-invalid @enderror"
+                                            name="food_cost" value="{{ old('food_cost') }}">
+                                    </div>
+
+                                    
+
+
+                                    
+
+                                    
+
                                     <div class="col-md-6 mb-3">
                                         <label for="">Private Guide Price</label>
                                         @error('pg_price')
@@ -286,6 +371,90 @@
                                                             @enderror
                                                             <textarea name="descreption" rows="3" class="form-control @error('descreption') is-invalid @enderror">{{ $items->descreption }}</textarea>
                                                         </div>
+
+
+
+                                                        <div class="col-md-12 mb-3">
+                                                            <label for="">Google map</label>
+                                                            @error('google_map')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                            <input type="text" class="form-control @error('google_map') is-invalid @enderror"
+                                                                name="google_map" value="{{ old('google_map') }}">
+                                                        </div>
+                    
+                    
+                                                        <div class="col-md-12 mb-3">
+                                                            <label for="">Nearby Hotels</label>
+                                                            @error('nearby_hotels')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                            <input type="text" class="form-control @error('nearby_hotels') is-invalid @enderror"
+                                                                name="nearby_hotels" value="{{ $items->nearby_hotels }}">
+                                                        </div>
+                    
+                                                        <div class="col-md-12 mb-3">
+                                                            <label for="">Hotel Cost Per Night</label>
+                                                            @error('hotel_cost_per_night')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                            <input type="number" class="form-control @error('hotel_cost_per_night') is-invalid @enderror"
+                                                                name="hotel_cost_per_night" value="{{ $items->hotel_cost_per_night }}">
+                                                        </div>
+                    
+                                                        <div class="col-md-6 mb-3">
+                    
+                                                            <select class="form-select mt-5" name='transport' aria-label="Default select example">
+                                                                <option selected>Tranport</option>
+                                                                
+                                                                    <option value="yes">Yes</option>
+                                                                    <option value="no">No</option>
+                                                                
+                    
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-6 mb-3">
+                                                            <label for="">Transport Cost</label>
+                                                            @error('transport_cost')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                            <input type="number" class="form-control @error('transport_cost') is-invalid @enderror"
+                                                                name="transport_cost" value="{{ $items->transport_cost }}">
+                                                        </div>
+                    
+                                                        <div class="col-md-6 mb-3">
+                                                            <label for="">Diffuclty Degree</label>
+                                                            @error('difficulty_degree')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                            <input type="number" class="form-control @error('difficulty_degree') is-invalid @enderror"
+                                                                name="difficulty_degree" value="{{ $items->difficulty_degree }}">
+                                                        </div>
+                    
+                                                        <div class="col-md-6 mb-3">
+                                                            <label for="">Food Cost</label>
+                                                            @error('food_cost')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                            <input type="number" class="form-control @error('food_cost') is-invalid @enderror"
+                                                                name="food_cost" value="{{ $items->food_cost }}">
+                                                        </div>
+
+
+
+
 
                                                         <div class="col-md-6 mb-3">
                                                             <label for="">Private Guide Price</label>

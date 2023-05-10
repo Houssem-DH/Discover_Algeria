@@ -28,7 +28,7 @@ class TourController extends Controller
     }
     public function view($id)
     {
-        
+        if(Auth::check()){
         $tour=Tour::where('id', $id)->first();
         $tourrequestc=Tourrequest::where('user_id', Auth::user()->id)->where('tour_id', $tour->id)->where('status', '0')->count();
         
@@ -41,5 +41,22 @@ class TourController extends Controller
             'tourrequestc' => $tourrequestc,  
             
         ]);
+        }
+        else {
+
+            $tour=Tour::where('id', $id)->first();
+            
+            
+    
+    
+    
+            
+            return view('Frontend.Tours.view', [
+                'tour' => $tour,  
+                
+                
+            ]);
+
+        }
     }
 }
